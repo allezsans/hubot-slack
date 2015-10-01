@@ -1,8 +1,11 @@
 # Description:
 # ignore not permitted messages.
+fs = require 'fs'
+rooms_list = fs.readFileSync 'setting/permitted-rooms-list', 'utf8'
+users_list = fs.readFileSync 'setting/permitted-users-list', 'utf8'
 
-permitted_rooms = process.env.HUBOT_PERMITTED_ROOMS?.split(',') || []
-permitted_users = process.env.HUBOT_PERMITTED_USERS?.split(',') || []
+permitted_rooms = rooms_list?.split('¥n') || []
+permitted_users = users_list?.split('¥n') || []
 
 permitted = (room) ->
 	room in permitted_rooms || room in permitted_users
