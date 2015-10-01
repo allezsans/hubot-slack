@@ -5,4 +5,5 @@ module.exports = (robot) ->
 
 	robot.router.post "/hubot/hooks", (req, res) ->
 		robot.messageRoom "development", "[deploy] done - #{req.body.app}(#{req.body.release})"
+		console.log "receive heroku deploy notify."
 		res.send "ok"
