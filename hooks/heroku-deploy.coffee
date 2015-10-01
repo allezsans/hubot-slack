@@ -3,7 +3,7 @@
 module.exports = (robot) ->
 	crypto = require("crypto")
 
-	robot.router.post "/hubot/hooks/heroku-deploy", (req, res) ->
+	robot.router.post "/mandra/hooks/heroku-deploy", (req, res) ->
 		robot.messageRoom "development", "[deploy] done - #{req.body.app}(#{req.body.release})"
 		console.log "receive heroku deploy notify."
 		res.send "ok"
