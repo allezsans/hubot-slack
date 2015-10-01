@@ -6,5 +6,5 @@ module.exports = (robot) ->
 	robot.router.post "/deploy-notify/:room", (req, res) ->
 		{ room } = req.params
 		robot.messageRoom room, "パワーアップ(#{req.body.release})して帰ってきました。"
-		robot.messageRoom room, "> #{req.body.head}"
+		robot.messageRoom room, "> #{req.body.git_log}"
 		res.send "ok"
