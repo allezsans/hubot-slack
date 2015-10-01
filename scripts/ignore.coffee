@@ -4,8 +4,9 @@ fs = require 'fs'
 rooms_list = fs.readFileSync 'setting/permitted-rooms-list', 'utf8'
 users_list = fs.readFileSync 'setting/permitted-users-list', 'utf8'
 
-permitted_rooms = rooms_list?.split('¥n') || []
-permitted_users = users_list?.split('¥n') || []
+permitted_rooms = rooms_list?.split(/\r\n|\r|\n/) || []
+permitted_users = users_list?.split(/\r\n|\r|\n/) || []
+console.log "roomslist is #{permitted_rooms}"
 
 permitted = (room) ->
 	room in permitted_rooms || room in permitted_users
